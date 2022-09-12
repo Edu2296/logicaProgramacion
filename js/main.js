@@ -50,9 +50,44 @@ document.write('<h1>Listado de nombre</h1>');
     document.write(nombres[i] + '<br/>');
 }*/
 
-nombres.forEach(function(nombres){
+/*nombres.forEach(function(nombres){
 document.write(nombres+'<br/>');
-});
+});*/
 nombres.forEach((nombres) => {
     document.write(nombres+'<br/>');
     });
+
+    ///JSON
+var coche = {
+    modelo:'Mercedes clase a',
+    maxima:500,
+    antiguedad:2020,
+    mostrarDatos(){
+        console.log(this.modelo,this.maxima,this.antiguedad);
+    },
+    propiedad:"valor aleatorio"
+}  ;  
+
+document.write("<h1>"+coche.antiguedad+"</h1>");
+coche.mostrarDatos();
+console.log(coche);
+
+///Promesas
+var saludar = new Promise((resolve, reject) => {
+setTimeout(() => {
+     let saludo= "hola con todos";
+     //saludo = false;
+     if(saludo){
+        resolve(saludo);
+     }else{
+        reject('no hay saludo');
+     }
+},2000);
+});
+
+saludar.then(resultado => {
+    alert(resultado);
+})
+.catch(err => {
+    alert(err);
+});
